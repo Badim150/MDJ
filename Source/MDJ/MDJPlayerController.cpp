@@ -29,7 +29,7 @@ void AMDJPlayerController::SetupInputComponent()
 	InputComponent->BindAxis("MoveForward", this, &AMDJPlayerController::MoveForward);
 	InputComponent->BindAxis("MoveRight", this, &AMDJPlayerController::MoveRight);
 	InputComponent->BindAction("Action", IE_Pressed, this, &AMDJPlayerController::ActionStart);
-	InputComponent->BindAction("Action", IE_Pressed, this, &AMDJPlayerController::ActionEnd);
+	InputComponent->BindAction("Action", IE_Released, this, &AMDJPlayerController::ActionEnd);
 
 
 	/*
@@ -59,6 +59,7 @@ void AMDJPlayerController::MoveForward(float Value)
 
 void AMDJPlayerController::MoveRight(float Value)
 {
+	UE_LOG(LogTemp, Warning, TEXT("yo"));
 	APawn* const Controller = GetPawn();
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
@@ -73,19 +74,13 @@ void AMDJPlayerController::MoveRight(float Value)
 
 void AMDJPlayerController::ActionStart()
 {
-	struct FConstructorStatics {
-		ConstructorHelpers::FObjectFinderOptional<UAnimSequence> Anim;
-		FConstructorStatics()
-			: Anim(TEXT("/Game/Mannequin/Animations/ThirdPerson_Jump.ThirdPerson_Jump")) {}
-	};
-	static FConstructorStatics ConstructorStatics;
-	ACharacter* chara = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-	//chara->GetMesh()->PlayAnimation
 
+	UE_LOG(LogTemp, Warning, TEXT("Queijo"));
 }
 
 void AMDJPlayerController::ActionEnd()
 {
+	UE_LOG(LogTemp, Warning, TEXT("FIAMBRE"));
 }
 
 
