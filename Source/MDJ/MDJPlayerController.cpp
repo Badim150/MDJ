@@ -53,7 +53,9 @@ void AMDJPlayerController::MoveForward(float Value)
 		// Limit pitch when walking or falling
 		// add movement in that direction
 		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::X);
-		Controller->AddMovementInput(Direction, Value);
+		FVector Direction2 = Direction;
+		Direction2.X = Direction.X - 0.5f;
+		Controller->AddMovementInput(Direction2, Value);
 	}
 }
 
@@ -68,6 +70,8 @@ void AMDJPlayerController::MoveRight(float Value)
 		// Limit pitch when walking or falling
 		// add movement in that direction
 		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
+		FVector Direction2 = Direction;
+		Direction2.Y = Direction.Y - 0.5f;
 		Controller->AddMovementInput(Direction, Value);
 	}
 }
