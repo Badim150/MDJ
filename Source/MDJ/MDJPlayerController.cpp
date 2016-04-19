@@ -72,7 +72,7 @@ void AMDJPlayerController::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(Rotation).GetScaledAxis(EAxis::Y);
 		FVector Direction2 = Direction;
 		Direction2.Y = Direction.Y - 0.5f;
-		Controller->AddMovementInput(Direction, Value);
+		Controller->AddMovementInput(Direction2, Value);
 	}
 }
 
