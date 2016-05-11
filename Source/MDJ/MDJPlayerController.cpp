@@ -61,7 +61,6 @@ void AMDJPlayerController::MoveForward(float Value)
 
 void AMDJPlayerController::MoveRight(float Value)
 {
-	UE_LOG(LogTemp, Warning, TEXT("yo"));
 	APawn* const Controller = GetPawn();
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
